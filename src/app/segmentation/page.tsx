@@ -1,12 +1,16 @@
 "use client";
 
 import React, { Suspense } from "react";
-import { Row, Col, Card, Typography, Space } from "antd";
+import { Row, Col, Card, Typography, Space, Spin } from "antd";
 import { Scene } from "@/components/segmentation/3D/Scene";
+import { ControlPanel } from "@/components/segmentation/UI/ControlPanel";
+import { usePointCloudData } from "@/hooks/usePointCloudData";
 
 const { Title, Text } = Typography;
 
 export default function SegmentationPage() {
+  usePointCloudData();
+
   return (
     <div className="p-6 min-h-screen">
       <Space direction="vertical" size="large" className="w-full">
@@ -34,13 +38,18 @@ export default function SegmentationPage() {
               <Suspense
                 fallback={
                   <div className="h-full flex items-center justify-center">
-                    <Text>Loading...</Text>
+                    <Spin size="large" tip="Loading 3D Scene..." />
                   </div>
                 }
               >
                 <Scene />
               </Suspense>
             </Card>
+          </Col>
+
+          {/* 컨트롤 패널 */}
+          <Col xs={24} lg={8} className="min-h-[600px]">
+            <ControlPanel />
           </Col>
         </Row>
       </Space>
