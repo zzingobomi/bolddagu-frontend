@@ -77,7 +77,7 @@ const SceneContent = () => {
       {/* 카메라 컨트롤 */}
       <OrbitControls
         enableDamping={false}
-        minDistance={1}
+        minDistance={0}
         maxDistance={50}
         makeDefault
       />
@@ -89,7 +89,7 @@ export const Scene = React.memo(() => {
   return (
     <div className="relative w-full h-full">
       <Canvas
-        camera={{ position: [5, 5, 5], fov: 60 }}
+        camera={{ position: [5, 5, 5], fov: 60, near: 0.01, far: 1000 }}
         gl={{ antialias: true }}
       >
         <SceneContent />

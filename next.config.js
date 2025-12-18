@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  strictMode: false,
   transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
   experimental: {
     turbo: {
