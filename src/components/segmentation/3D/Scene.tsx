@@ -4,7 +4,6 @@ import { OrbitControls } from "@react-three/drei";
 import { Html } from "@react-three/drei";
 import { useSegmentationStore } from "@/store/segmentationStore";
 import { PointCloud } from "./PointCloud";
-import { SelectedPointMarkers } from "./SelectedPointMarkers";
 import { useCameraAutoFit } from "@/hooks/useCameraAutoFit";
 
 const LIGHTING_CONFIG = {
@@ -70,9 +69,6 @@ const SceneContent = () => {
           colors={pointCloudData.colors}
         />
       )}
-
-      {/* 선택된 포인트 마커 - 별도 렌더링 */}
-      {/* <SelectedPointMarkers /> */}
 
       {/* 카메라 컨트롤 */}
       <OrbitControls

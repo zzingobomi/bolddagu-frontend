@@ -14,6 +14,7 @@ import {
   MinusOutlined,
   ClearOutlined,
   SendOutlined,
+  DeleteOutlined,
 } from "@ant-design/icons";
 import { useSegmentationStore, PointType } from "@/store/segmentationStore";
 import { apiClient, API_ENDPOINTS } from "@/lib/api";
@@ -29,6 +30,7 @@ export const ControlPanel = React.memo(() => {
     isLoading,
     setIsLoading,
     setSegmentationMask,
+    reset,
   } = useSegmentationStore();
 
   const positiveCount = selectedPoints.filter(
@@ -147,6 +149,9 @@ export const ControlPanel = React.memo(() => {
             block
           >
             Clear All Points
+          </Button>
+          <Button icon={<DeleteOutlined />} onClick={reset} block>
+            Reset
           </Button>
         </Space>
 
